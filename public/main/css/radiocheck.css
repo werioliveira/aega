@@ -1,0 +1,66 @@
+/* iCheck plugin WARFORGE skin, warfg by E. Darksider
+-------------------------------------------------- */
+.icheckbox,
+.iradio {
+	border: none;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: middle;	
+	background: url(../images/misc/radio-checkbox.png) no-repeat;
+}
+
+.icheckbox {
+	width: 30px;
+	height: 31px;
+	margin: -5px 0 0 0;
+}
+
+.iradio {
+	width: 28px;
+	height: 30px;
+	margin: -1px 10px 0 0;
+}
+
+.icheckbox {
+	background-position: 0 0;
+}
+
+.icheckbox.hover {
+	background-position: -30px 0;
+}
+
+.icheckbox.checked {
+	background-position: -60px 0;
+}
+
+.icheckbox.disabled {
+	background-position: -90px 0;
+	cursor: default;
+}
+
+.icheckbox.checked.disabled {
+	background-position: -120px 0;
+}
+
+.iradio {
+	background-position: -151px -1px;
+}
+
+.iradio.hover {
+	background-position: -181px -1px;
+}
+
+.iradio.checked {
+	background-position: -211px -1px;
+}
+
+.iradio.disabled {
+	background-position: -241px -1px;
+	cursor: default;
+}
+
+.iradio.checked.disabled {
+	background-position: -272px -1px;
+}

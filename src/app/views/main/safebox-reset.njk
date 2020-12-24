@@ -1,0 +1,29 @@
+{% extends "layout/index.njk" %}
+{% block content %}
+    
+
+<body class="RegisterClass">
+<div class="login-page">
+<div class="form">
+<br><br>
+
+
+				<h1>Alterar a senha do meu armazém</h1>
+<p class="input-label">Por favor, não compartilhe sua senha com ninguém.</p>		<br>
+			<form action="/safebox-reset" method="POST" class="form-horizontal"><center>
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-3 control-label">Email :</label>
+					<div class="col-sm-6">
+					<input type="text" class="form-control" value="{{session.email}}" disabled>
+					<input type="hidden" name="deger" value="yok"/>
+					</div>
+				</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-6">
+					<button type="submit" class="btn btn-giris" style="margin-top: 10px;"> Enviar</button>
+				</div>
+			</div>
+			</form>
+		<div>
+{% endblock %}

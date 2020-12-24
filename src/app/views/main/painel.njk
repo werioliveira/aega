@@ -1,0 +1,48 @@
+{% extends "layout/index.njk" %}
+{% block content %}
+    <div class="panel panel-buyuk">
+    <div class="panel-heading">Painel de Controle <a href="/" class="back-to-account" title="Geri"></a></div>
+    <div class="panel-body">
+				<div class="entry">
+					<table style="width:100%;margin: 0 auto;" class="ranking-table">
+				<thead>
+					<tr class="main-tr">
+						<th colspan="2">Informações da Conta</th>
+					</tr>
+				</thead>
+                <tbody>
+					<tr>
+                        <td style="width:50%;text-align: left;">Nome do usuário</td>
+                        <td style="width:50%;text-align: left;"> {{session.username}}</td>
+                    </tr>
+                    <tr style="height:15px;">
+                        <td style="width:50%;text-align: left;">Email</td>
+                        <td style="width:50%;text-align: left;">{{session.email}}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;text-align: left;">Cash</td>
+                        <td style="width:50%;text-align: left;">{{session.cash}} <sup>EP</sup></td>
+                    </tr>
+                </tbody>
+			</table>
+			        </div>
+
+		<br>
+
+		<div class="kayip-buttonlar2-cp">
+			<a href="/reset-password" class="btn btn-giris"><i class="glyphicon glyphicon-lock"></i> &nbsp; Mudar senha</a>
+			<a href="/player-unbug" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-hourglass"></i> &nbsp; Desbugar Personagem</a>
+			<a href="/safebox-reset" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Senha do Armazem</a>
+			<a href="/logout" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-log-out"></i> &nbsp; Sair</a>
+			<a href="/reset-social" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Solicitar código de exclusão de personagem</a>
+
+
+		</div>
+
+		
+    </div>
+</div>
+
+{% endblock %}
+
+

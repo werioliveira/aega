@@ -1,0 +1,401 @@
+#fancybox-loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 40px;
+    width: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1104;
+    display: none
+}
+
+* html #fancybox-loading {
+    position: absolute;
+    margin-top: 0
+}
+
+#fancybox-loading div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 480px;
+    background-image: url('../images/fancybox/1.html')
+}
+
+#fancybox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    z-index: 1100;
+    display: none
+}
+
+* html #fancybox-overlay {
+    position: absolute;
+    width: 100%
+}
+
+#fancybox-tmp {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: auto;
+    display: none
+}
+
+#fancybox-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 1101;
+    display: none
+}
+
+#fancybox-outer {
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+#fancybox-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    overflow: hidden
+}
+
+#fancybox-hide-sel-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent
+}
+
+#fancybox-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 25px;
+    height: 25px;
+    background-image: url('../images/fancybox/2.html');
+    cursor: pointer;
+    z-index: 1103;
+    display: none
+}
+
+#fancybox_error {
+    color: #444;
+    font: normal 12px/20px Arial;
+    padding: 7px;
+    margin: 0
+}
+
+#fancybox-content {
+    height: auto;
+    width: auto;
+    padding: 0;
+    margin: 0
+}
+
+#fancybox-img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    line-height: 0;
+    vertical-align: top;
+    z-index: 50;
+    -ms-interpolation-mode: bicubic
+}
+
+#fancybox-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block
+}
+
+#fancybox-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: Arial;
+    font-size: 12px;
+    z-index: 1102
+}
+
+.fancybox-title-inside {
+    padding: 10px 0;
+    text-align: center;
+    color: #333
+}
+
+.fancybox-title-outside {
+    padding-top: 5px;
+    color: #FFF;
+    text-align: center;
+    font-weight: bold
+}
+
+.fancybox-title-over {
+    color: #FFF;
+    text-align: left
+}
+
+#fancybox-title-over {
+    padding: 10px;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn43/976b0bc7fc722f42750657351fbf75.png');
+    display: block
+}
+
+#fancybox-title-wrap {
+    display: inline-block
+}
+
+#fancybox-title-wrap span {
+    height: 32px;
+    float: left
+}
+
+#fancybox-title-left {
+    padding-left: 15px;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn11/e57e492ee0311540967cc7a1e6e3e2.png');
+    background-position: -40px -90px;
+    background-repeat: no-repeat
+}
+
+#fancybox-title-main {
+    font-weight: bold;
+    line-height: 29px;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn16/8696d8a694214090ef90e029cdf393.png');
+    background-position: 0 -40px;
+    color: #FFF
+}
+
+#fancybox-title-right {
+    padding-left: 15px;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn11/e57e492ee0311540967cc7a1e6e3e2.png');
+    background-position: -55px -90px;
+    background-repeat: no-repeat
+}
+
+#fancybox-left, #fancybox-right {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 35%;
+    cursor: pointer;
+    outline: 0;
+    background-image: url('../../../../../../../gf1.geo.gfsrv.net/cdn32/5472601571f31e1bf00674c368d335.gif');
+    z-index: 1102;
+    display: none
+}
+
+#fancybox-left {
+    left: 0
+}
+
+#fancybox-right {
+    right: 0
+}
+
+#fancybox-left-ico, #fancybox-right-ico {
+    position: absolute;
+    top: 50%;
+    left: -9999px;
+    width: 35px;
+    height: 20px;
+    margin-top: -15px;
+    cursor: pointer;
+    z-index: 1102;
+    display: block
+}
+
+#fancybox-left-ico {
+    background-image: url('../../../../../../../gf3.geo.gfsrv.net/cdn8c/cc45cdd269052744d54b3aef54d104.gif')
+}
+
+#fancybox-right-ico {
+    background-image: url('../../../../../../../gf3.geo.gfsrv.net/cdnbd/4b319590d9b51bac424a6a239e7e5f.gif')
+}
+
+#fancybox-left:hover, #fancybox-right:hover {
+    visibility: visible
+}
+
+#fancybox-left-ico:hover {
+    background-image: url('../../../../../../../gf1.geo.gfsrv.net/cdn93/10ef5af1922e93aed3e7d9b3610a4e.gif')
+}
+
+#fancybox-right-ico:hover {
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn4d/0d91913287906e74be8a7e0a0035ad.gif')
+}
+
+#fancybox-left:hover span {
+    left: 20px
+}
+
+#fancybox-right:hover span {
+    left: auto;
+    right: 20px
+}
+
+.fancy-bg {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 1001
+}
+
+#fancy-bg-n {
+    top: -20px;
+    left: 0;
+    width: 100%;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn16/8696d8a694214090ef90e029cdf393.png')
+}
+
+#fancy-bg-ne {
+    top: -20px;
+    right: -20px;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn11/e57e492ee0311540967cc7a1e6e3e2.png');
+    background-position: -40px -162px
+}
+
+#fancy-bg-e {
+    top: 0;
+    right: -20px;
+    height: 100%;
+    background-image: url('../../../../../../../gf1.geo.gfsrv.net/cdnff/de9dad6477f72a4d36ed34e08ee106.png');
+    background-position: -20px 0
+}
+
+#fancy-bg-se {
+    bottom: -20px;
+    right: -20px;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn11/e57e492ee0311540967cc7a1e6e3e2.png');
+    background-position: -40px -182px
+}
+
+#fancy-bg-s {
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn16/8696d8a694214090ef90e029cdf393.png');
+    background-position: 0 -20px
+}
+
+#fancy-bg-sw {
+    bottom: -20px;
+    left: -20px;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn11/e57e492ee0311540967cc7a1e6e3e2.png');
+    background-position: -40px -142px
+}
+
+#fancy-bg-w {
+    top: 0;
+    left: -20px;
+    height: 100%;
+    background-image: url('../../../../../../../gf1.geo.gfsrv.net/cdnff/de9dad6477f72a4d36ed34e08ee106.png')
+}
+
+#fancy-bg-nw {
+    top: -20px;
+    left: -20px;
+    background-image: url('../../../../../../../gf2.geo.gfsrv.net/cdn11/e57e492ee0311540967cc7a1e6e3e2.png');
+    background-position: -40px -122px
+}
+
+#fancybox-loading.fancybox-ie div {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf3.geo.gfsrv.net/cdn87/dac74574971a78cd34c888986d1405.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancybox-title-over {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf2.geo.gfsrv.net/cdn43/976b0bc7fc722f42750657351fbf75.png', sizingMethod='scale');
+    zoom: 1
+}
+
+.fancybox-ie #fancybox-title-left {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf2.geo.gfsrv.net/cdn15/82ac2d3bef6a6445bf02ceca2741cd.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancybox-title-main {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf1.geo.gfsrv.net/cdn38/dad6c1ed4bdc81c0bec721b2deb8c2.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancybox-title-right {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf1.geo.gfsrv.net/cdn6c/be0c935511e7f9a2555ccb6a7324c4.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancybox-left-ico {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf2.geo.gfsrv.net/cdna3/5e0afc419956fd609e3b555844452b.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancybox-right-ico {
+    background: transparent;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf1.geo.gfsrv.net/cdn08/cc12806a19d1aca751c03fd4ed28d0.png', sizingMethod='scale')
+}
+
+.fancybox-ie .fancy-bg {
+    background: transparent !important
+}
+
+.fancybox-ie #fancy-bg-n {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf1.geo.gfsrv.net/cdn31/b1da25b232ccdc642a75640cf5fd1c.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancy-bg-ne {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf1.geo.gfsrv.net/cdn63/adf788acf193d4e4f3642d7d793125.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancy-bg-e {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf1.geo.gfsrv.net/cdnfd/4f491080d29fade5080877f1ba4c8b.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancy-bg-se {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf2.geo.gfsrv.net/cdna8/afd5a008884380ee712d177105268f.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancy-bg-s {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf2.geo.gfsrv.net/cdn4e/debf0bdc695f1cd8a4c4cd397b2bb5.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancy-bg-sw {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf1.geo.gfsrv.net/cdnf8/1cc0fee5581d76ad3cebe47e7e791b.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancy-bg-w {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf3.geo.gfsrv.net/cdn86/d8d11d6cf21f57bb08eab83ff7314a.png', sizingMethod='scale')
+}
+
+.fancybox-ie #fancy-bg-nw {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../../../../gf1.geo.gfsrv.net/cdnc8/20c878aedb7a7f9ebd7135a58e7c65.png', sizingMethod='scale')
+}
+
+

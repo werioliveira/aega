@@ -1,0 +1,221 @@
+{% extends "layout/index.njk" %}
+{% block content %}
+    
+
+<aside id="right">
+    <div id="content_ajax">
+        <article class="page_article">
+			<div class="panel-heading"><h2 class="head">Registro</h2></div>
+            <div class="body">
+                <div class="error-holder">
+                    <div class="container_3 red wide fading-notification" align="center">
+						                    </div>
+                </div>
+				<!--
+					<?
+		try
+		{
+			if($_POST)
+			{
+				$Telefon = intval(substr(str_replace(array(" ","(",")"),"",$_POST["telefon"]),0,11));
+				
+				
+				foreach($_POST as $veri1 => $veri2)
+				{
+					if(strlen($veri2) < 1)
+					{
+						throw new Exception("Boş alan bırakmayınız.");
+					}
+				}
+				
+				$captcha = $_POST['g-recaptcha-response'];
+				$secretKey = GOOGLE_RECAPTCHA_SECRET;
+				$ip = $_SERVER['REMOTE_ADDR'];
+				$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
+				$responseKeys = json_decode($response,true);
+				if(intval($responseKeys["success"]) !== 0) 
+				{
+					throw new Exception("Güvenlik onaylanamadı.");
+				}
+				
+
+
+				if(strlen($_POST["hesap"]) > 20 or strlen($_POST["sifre"]) > 20)
+				{
+					throw new Exception("Kullanıcı adı veya şifreniz 20 karakterden büyük olmamalıdır.");
+				}
+				
+				if(!ctype_alnum($_POST["hesap"]))
+				{
+					throw new Exception("Kullanıcı adınızda türkçe ve özel karakter kullanamazsınız.");
+				}
+				
+				if(!ctype_alnum($_POST["sifre"]))
+				{
+					throw new Exception("Şifrenizde türkçe ve özel karakter kullanamazsınız.");
+				}
+				
+				if(strlen($Telefon) != 10)
+				{
+					throw new Exception("Lütfen geçerli bir telefon numarası giriniz. ".$Telefon);
+				}
+				
+
+				
+				if($_POST["sifre"])
+				{
+					$kontrol = "/\S*((?=\S{8,16}))\S*/";
+					if(!preg_match($kontrol,$_POST["sifre"]))
+					{
+						throw new Exception("Şifreniz formata uygun değil.<br>
+						<b>Uygun Format ;</b><br>
+						<ul>
+							<li>En az 8 karakter olmalı</li>
+							<li>En fazla 16 karakter olmalı</li>
+						</ul>");
+					}
+					
+					
+				}
+				
+				if($_POST["sifre"] != $_POST["sifre2"])
+				{
+					throw new Exception("Girdiğiniz şifreler uyuşmuyor.");
+				}
+				
+				if (!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)) {
+					throw new Exception("Mail adresi geçersiz."); 
+				}
+				
+				$HesapSay = mysql_num_rows(mysql_query("SELECT id FROM ".MYSQL_ACCOUNT.".account WHERE login = '$_POST[hesap]';"));							
+				if($HesapSay > 0)
+				{
+					throw new Exception("Hesap adı kullanılıyor.");
+				}
+				
+				$Query = "
+				INSERT INTO ".MYSQL_ACCOUNT.".account 
+				(login,password,email,social_id,phone1,question1,real_name,create_time,web_ip,web_aktiviert,tel_onay) 
+				VALUES
+				('$_POST[hesap]',PASSWORD('$_POST[sifre]'),'$_POST[mail]','$_POST[kod]','$Telefon','$_POST[question1]','$_POST[real_name]','".date("Y-m-d H:i:s")."','".$_SERVER['REMOTE_ADDR']."','".$_SERVER['REMOTE_ADDR']."','0')
+				";
+				$Olustur = mysql_query($Query);
+				
+				Hata_Yakala($Query,"Hata raporu oluşturuldu.");
+				
+				if(!$Olustur)
+					throw new Exception("Kayıt olurken sorun ile karşılaşıldı lütfen tekrar deneyin.");
+				
+				
+				
+				$MailBasligi = AsiLZade." , Hesap Bilgileri";
+				$MailIcerigi = '<div style="background: #E2E2E2;margin: 0px auto;width: 600px;padding-bottom: 20px;height:auto;font-family: \'Meiryo\', Osaka, Arial, sans-serif;font-size: 12px;overflow: hidden;"><br><br>
+				<div style="width: 540px;background: #efefef;height: auto;margin:0px auto;margin-top: 30px;">
+				<h2 style="font-size: 14px;font-weight: bold;color: #545454;padding: 5px;padding-left: 20px;margin: 0px;margin-bottom: -5px;">'.SERVERADI.' - Kayıt Bilgilendirme Formu</h2>
+				<hr>
+				<div style="padding:20px;padding-top:10px;">
+				<center>Aramıza hoşgeldin <b>'.$_POST["hesap"].'</b>,<br> bu mail sistem tarafından otomatik olarak gönderilmiştir hesap bilgileriniz aşşağıda yer almaktadır lütfen bu maili cevaplamayınız.
+				<br><br>
+				<table style="width:100%;font-size: 12px;">
+					<tbody>
+						<tr style="background: #DEDEDE;height: 30px;">
+							<td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Hesap Adı : </td>
+							<td style="padding-left:20px;">'.$_POST["hesap"].'</td>
+						</tr>
+						<tr style="background: #F2F2F2;height: 30px;">
+							<td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Hesap Şifresi : </td>
+							<td style="padding-left:20px;">'.$_POST["sifre"].'</td>
+						</tr>
+						<tr style="background: #DEDEDE;height: 30px;">
+							<td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Karakter Silme Kodu : </td>
+							<td style="padding-left:20px;">'.$_POST["kod"].'</td>
+						</tr>
+
+
+							<tr style="background: #DEDEDE;height: 30px;">
+							<td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Bizi Nerden Buldunuz : </td>
+							<td style="padding-left:20px;">'.$_POST["question1"].'</td>
+						</tr>
+
+						<tr style="background: #F2F2F2;height: 30px;">
+							<td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Kayıt Olan İP Adresi : </td>
+							<td style="padding-left:20px;">'.$_SERVER['REMOTE_ADDR'].'</td>
+						</tr>
+					</tbody>
+				</table>
+					
+				</center>
+				</div>
+				</div>
+				<br>
+				<center><i>'.AsiLZade.' kayıt bilgilendirme formu</i></center>
+				</div>';
+				
+				$Mesaj = new Mesaj(); 
+				$Mesaj->Basarili("Hesabınız başarıyla oluşturuldu<br>Hesap bilgileriniz mail adresinize gönderildi.");
+				
+				MailGonder($MailBasligi,$MailIcerigi,$_POST["mail"],MAIL_HOST,MAIL_SERVER,MAIL_HESAP,MAIL_SIFRE);
+			}
+		}
+		catch(Exception $HataMesaji)
+		{
+			$Mesaj = new Mesaj(); 
+			$Mesaj->Hata($HataMesaji->getMessage());
+		}
+		?><br>
+
+
+-->
+				                   <form action="/register" method="POST" id="kayit_form" class="form-horizontal" autocomplete="off">
+                        <div class="form-group">
+                            <label for="login" class="col-sm-3 control-label">Nome de Usuário</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control2" name="login" id="login" required maxlength="16" onkeypress="return textonly(event,'#login')">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass" class="col-sm-3 control-label">Senha</label>
+                            <div class="col-sm-7">
+                                <input type="password" class="form-control2" name="password" id="pass" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass2" class="col-sm-3 control-label">Confirmar Senha</label>
+                            <div class="col-sm-7">
+                                <input type="password" class="form-control2" name="password2" id="pass2" required="" maxlength="30">
+                            </div>
+                        </div>
+
+						                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-7">
+                                <input type="email" class="form-control2" name="email" id="email" required="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="realname" class="col-sm-3 control-label">Nome</label>
+                            <div class="col-sm-7">
+                                <input id="realname" type="text" name="real_name" class="form-control2" onkeypress="return textonly2(event,'#name')" maxlength="30" required="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ksk" class="col-sm-3 control-label">Codigo de Personagem</label>
+                            <div class="col-sm-7">
+                                <input id="ksk" type="text" name="social_id" class="form-control2" onkeypress="return numberonly(event,'#ksk')" maxlength="7" required="">
+                            </div>
+                        </div>
+						 <div class="form-group">
+                            <label for="g-recaptcha" class="col-sm-3 control-label">Captcha</label>
+                            <div class="col-sm-7">
+								<div class="g-recaptcha" data-theme="dark" style="transform:scale(0.81);-webkit-transform:scale(0.81);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6LewQQ8aAAAAAGlI2ySnbxfyq6DuyEskTiDiAicX"></div>
+							</div>
+							</div>
+                        <div class="form-group">
+                                                   <button type="submit" name="login_submit" class="btn form-btn">Registrar</button>
+                                
+                            </div>
+                    </form>
+        </article>
+    </div>
+</aside>
+{% endblock %}

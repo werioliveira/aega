@@ -1,0 +1,434 @@
+.event-frame {
+    border: none !important;
+    width: 132px !important;
+    height: 262px !important;
+    margin-right: auto;
+    display: block;
+    margin-left: auto;
+}
+
+.discord-widget {
+    width:320px;
+    transition-property: right;
+    transition-duration: 2s;
+    -webkit-transition-property: right; /* Safari */
+    -webkit-transition-duration: 2s; /* Safari */
+    position: fixed;
+    bottom: 20px;
+    left: 0px;
+    z-index:10;
+}
+
+.discord-widget.active
+{
+    right: 20px;
+}
+
+.facebook-like {
+    position:relative;
+    width:549px;height:325px;
+    border:none;margin-top:10%;
+}
+
+.fbBoard{
+    line-height:0px;
+    position:fixed;
+    text-align:center;
+    z-index:1000;
+}
+.fbBoard2{
+     top:0px;
+     left:0px;
+     width:100%;
+     height:100%;
+     background:transparent url(../images/black-transparent.png) repeat top left;
+ }
+ 
+ .rc-anchor-light { 
+	background: #fff!important; 
+	color: #fff!important; 
+}
+
+ .rc-anchor-blue { 
+	background: #131f2b!important; 
+	color: #131f2b!important; 
+}
+
+ .rc-anchor-dark { 
+	background: #080808!important; 
+	color: #080808!important; 
+}
+
+li.WebDon {
+    float: right;
+}
+
+.Karakter_Kutu_Icerik {
+    padding: 10px;
+    height: 115px;
+    padding-top: 0px;
+}
+
+.Karakter_Kutu_Icerik .list-group {
+	margin: 0px;
+	line-height: 10px;
+}
+
+.Karakter_Kutu_Icerik a.list-group-item {
+	border-radius: 0px !important;
+    background: linear-gradient(to top left,#151e27,#233140,#46586b);
+    display: block;
+    background-size: cover;
+    color: #f7fbfe !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+    border: none;
+    line-height: 13px;
+}
+
+.Karakter_Kutu_Icerik a.list-group-item:hover {
+    background: linear-gradient(to top left,#212e3c,#2e4154,#597088);
+    color: #afd6ff !important;
+}
+
+.ItemDetayResim {
+	height: 136px;
+    border: 1px solid #2a3c4e;
+	display: block;
+	background-position: center !important;
+}
+
+.ItemDetayResim2 {
+    height: 136px;
+    border: 1px solid #2a3c4e;
+    display: block;
+    background-position: center !important;
+    background-size: contain,cover !important;
+}
+
+.ItemIcerikMin {
+    height: 150px;
+    float: left;
+    position: relative;
+    padding: 0px;
+    margin: 0.5%;
+    margin-bottom: calc(30px + 0.5%);
+}
+
+.col-md-1.ItemIcerikMin {
+	width: calc(13.5% - 2%) !important;
+}
+
+.col-md-2.ItemIcerikMin
+{
+	width: calc(16.666666667% - 1%) !important;
+}
+
+.col-md-4.ItemIcerikMin
+{
+	width: calc(33.33333333% - 1%) !important;
+}
+
+.col-md-6.ItemIcerikMin
+{
+	width: calc(50% - 1%) !important;
+}
+
+.ItemIcerikWiki {
+    height: 150px;
+    float: left;
+    position: relative;
+    padding: 0px;
+    margin: 0.5%;
+    margin-bottom: calc(30px + 0.5%);
+}
+
+.ItemIcerikWiki
+{
+	width: calc(50% - 1%) !important;
+}
+
+.ItemIcerikWikiMob {
+    height: 150px;
+    float: left;
+    position: relative;
+    padding: 0px;
+    margin: 0.5%;
+    margin-bottom: calc(30px + 0.5%);
+}
+
+.ItemIcerikWikiMob
+{
+	width: calc(13.5% - 2%) !important;
+}
+
+.ItemIcerikWikiItem {
+    height: 130px;
+    float: left;
+    position: relative;
+    padding: 0px;
+    margin: 0.5%;
+    margin-bottom: calc(30px + 0.5%);
+}
+
+.ItemIcerikWikiItem
+{
+	width: calc(13.5% - 2%) !important;
+}
+
+.ItemIcerikWikiSystem {
+    height: 150px;
+    float: left;
+    position: relative;
+    padding: 0px;
+    margin: 0.5%;
+    margin-bottom: calc(30px + 0.5%);
+}
+
+.ItemIcerikWikiSystem
+{
+	width: calc(50% - 1%) !important;
+}
+
+.YukseltmeEsyaBilgilendirme {
+    padding: 10px;
+    padding-left: 20px;
+    background: linear-gradient(to top left,#6ea9a9,#9ecaca);
+    padding-right: 20px;
+    color: white;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.29);
+    margin-bottom: 10px;
+}
+
+.MobResimli {
+    background-size: contain,cover !important;
+}
+
+.nice_button, input[type="submit"], .nice_button, input[type="button"] {
+    height: 50px;
+    color: #ead796;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0 20px;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 50px;
+    white-space: nowrap;
+    font-family:'Baloo Paaji 2';
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    vertical-align: top;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    background: url(../images/misc/button-red-sprite.png) 0 -51px repeat-x transparent;
+}
+
+.warfg_btn {
+    height: 50px;
+    display: inline-block;
+    position: relative;
+}
+
+.warfg_btn:before, .warfg_btn:after {
+    top: 0 !important /* 10px */;
+}
+
+.nice_button:before, .warfg_btn:before {
+    width: 15px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    content: "";
+    z-index: 999;
+    display: inline-block;
+    position: absolute;
+    background: url(../images/misc/button-red-sprite.png) 0 0 no-repeat;
+}
+
+.nice_button:after, .warfg_btn:after {
+    width: 15px;
+    height: 50px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    content: "";
+    z-index: 999;
+    display: inline-block;
+    position: absolute;
+    background: url(../images/misc/button-red-sprite.png) -16px 0 no-repeat;
+}
+
+/* Hover */
+.nice_button:hover, .warfg_btn:hover input[type="submit"] {
+    color: #f9ecc0;
+    background: url(../images/misc/button-red-sprite.png) 0 -154px repeat-x transparent;
+}
+
+.nice_button:hover:before, .warfg_btn:hover:before {
+    background: url(../images/misc/button-red-sprite.png) 0 -103px no-repeat;
+}
+
+.nice_button:hover:after, .warfg_btn:hover:after {
+    background: url(../images/misc/button-red-sprite.png) -16px -103px no-repeat;
+}
+
+/* Active */
+.nice_button:active, .warfg_btn:active input[type="submit"] {
+    color: #9a9172;
+    background: url(../images/misc/button-red-sprite.png) 0 -257px repeat-x transparent;
+}
+
+.nice_button:active:before, .warfg_btn:active:before {
+    background: url(../images/misc/button-red-sprite.png) 0 -206px no-repeat;
+}
+
+.nice_button:active:after, .warfg_btn:active:after {
+    background: url(../images/misc/button-red-sprite.png) -16px -206px no-repeat;
+}
+
+/* Nice active */
+.nice_active {
+    color: #FFF7DA;
+    box-shadow: 0 0 12px 1px rgba(91, 12, 12, .8);
+    -moz-box-shadow: 0 0 12px 1px rgba(91, 12, 12, .8);
+    -webkit-box-shadow: 0 0 12px 1px rgba(91, 12, 12, .8);
+    background: url(../images/misc/button-red-sprite.png) 0 -154px repeat-x transparent;
+}
+
+.nice_active:before {
+    background: url(../images/misc/button-red-sprite.png) 0 -103px no-repeat;
+}
+
+.nice_active:after {
+    background: url(../images/misc/button-red-sprite.png) -16px -103px no-repeat;
+}
+
+.nice_active:hover {
+    color: #FFFCEF;
+}
+
+.nice_active:active {
+    color: #FFF7DA;
+    box-shadow: 0 0 10px 1px rgba(91, 12, 12, .5);
+    -moz-box-shadow: 0 0 10px 1px rgba(91, 12, 12, .5);
+    -webkit-box-shadow: 0 0 10px 1px rgba(91, 12, 12, .5);
+    background: url(../images/misc/button-red-sprite.png) 0 -154px repeat-x transparent;
+}
+
+.nice_active:active:before {
+    background: url(../images/misc/button-red-sprite.png) 0 -103px no-repeat;
+}
+
+.nice_active:active:after {
+    background: url(../images/misc/button-red-sprite.png) -16px -103px no-repeat;
+}
+
+.ucp_divider {
+    margin: 0 auto 30px auto;
+}
+
+#popup_bg {
+    z-index: 999999;
+}
+
+#confirm,
+.popup {
+    width: 270px;
+    max-width: 400px;
+    top: 30%;
+    left: 47%;
+    border: 0;
+    display: none;
+    padding: 20px;
+    position: fixed;
+    overflow: hidden;
+    text-shadow: none;
+    margin-left: -120px;
+    border-radius: 16px;
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    box-shadow: inset 0 0 0 1px #7E3018, 0 0 28px #000, 0 0 10px #000, inset 0 0 15px rgba(0, 0, 0, .6), 0 0 45px #000;
+    -moz-box-shadow: inset 0 0 0 1px #7E3018, 0 0 28px #000, 0 0 10px #000, inset 0 0 15px rgba(0, 0, 0, .6), 0 0 45px #000;
+    -webkit-box-shadow: inset 0 0 0 1px #7E3018, 0 0 28px #000, 0 0 10px #000, inset 0 0 15px rgba(0, 0, 0, .6), 0 0 45px #000;
+    background: #1F1918;
+}
+
+#confirm h1,
+.popup h1 {
+    color: #9D9687;
+    margin: 0 auto;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 0 3px #000;
+}
+
+#validation {
+    width: 590px;
+    height: 44px;
+    margin: 0 auto;
+    margin-bottom: 6px;
+}
+
+#validation .error {
+    display: block;
+    background: url('../images/notifications.png') no-repeat -8px -6px;
+    height: 44px;
+}
+
+#validation .error p {
+    color: #A25656;
+    text-shadow: 0 3px 2px rgba(0, 0, 0, .4);
+    padding: 7px 0 0 60px;
+    font-size: 11px;
+}
+
+#validation .success {
+    display: block;
+    background: url('../images/notifications.png') no-repeat -8px -61px;
+    height: 44px;
+}
+
+#validation .success p {
+    color: #6FA256;
+    text-shadow: 0 3px 2px rgba(0, 0, 0, .4);
+    padding: 7px 0 0 60px;
+    font-size: 11px;
+}
+
+#validation .warning {
+    display: block;
+    background: url('../images/notifications.png') no-repeat -8px -117px;
+    height: 44px;
+}
+
+#validation .warning p {
+    color: #9C920E;
+    text-shadow: 0 3px 2px rgba(0, 0, 0, .4);
+    padding: 7px 0 0 60px;
+    font-size: 11px;
+}
+
+a#facebook_banner p {
+    border: none !important;
+}
+
+a#facebook_banner:hover {
+    -webkit-filter: contrast(120%);
+    transition: .5s ease-out;
+}
+
+a#facebook_banner:active {
+    -webkit-filter: contrast(90%);
+    transition: .5s ease-out;
+}

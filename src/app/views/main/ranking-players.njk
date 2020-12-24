@@ -1,0 +1,60 @@
+{% extends "layout/index.njk" %}
+{% block content %}
+    
+
+<aside id="right">
+    <div id="content_ajax">
+        <article class="page_article">
+			<div class="panel-heading"><h2 class="head">Ranking Players</h2></div>
+            <div class="body">
+                <div style="margin-left:10px;margin-bottom:20px;text-align: center;">
+					<a href="/ranking-players"><button class="btn btn-giris">Ranking Players</button></a>
+					<a href="/ranking-guilds"><button class="btn btn-giris">Ranking Guildas</button></a>
+                    <div class="ucp_divider"></div>
+                </div>
+				                    <table id="large" cellspacing="0" class="tablesorter">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Nível</th>
+                            <th>Reino</th>
+                            <th>Guilda</th>
+                            <th>Tempo Online</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+															<tr>
+                                    <td>{{loop.index}}</td>
+                                    <td><a rel="nofollow" href="https://aegea2.com/detail/player/detizefidir" title="Savaşçı">{{user.name}}</a></td>
+                                    <td>{{user.level}}</td>
+                                    {%if user.empire == 1%}
+                                        <td> <img src="/rank/1.png"/> </td>
+                                    {%elif user.empire == 2 %}
+                                        <td> <img src="/rank/2.png"/> </td>
+                                    {%else%}
+                                        <td> <img src="/rank/3.png"/> </td>
+                                    {% endif %}
+                                        {%if user.guild != null%}
+                                            <td> {{user.guild}} </td>
+                                        {%else%}
+                                            <td> Sem Guilda</td>
+                                        {%endif%}
+                                    <td>
+                                    {{user.playtime}}
+									 </td>
+                                    
+                                    </tr>
+                                     {% endfor %}
+
+					</tbody>
+
+					</tbody>
+                    </table>
+                            </div>
+        </article>
+    </div>
+</aside>
+
+{% endblock %}

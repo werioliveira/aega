@@ -1,0 +1,258 @@
+body{
+   overflow: hidden;
+}
+
+#container{
+   top:0;
+   left:0;
+   position: absolute;
+   background-image: url("../img/background_572x321.png");
+   background-repeat: no-repeat;
+   width: 335px;
+   height: 308px;
+}
+
+.social_button{
+   display:inline-block;
+   width: 18px;
+   height: 18px;
+   position: absolute;
+   top: 16px;
+}
+#facebook{
+   background-image: url("../img/facebook_sprite.png");
+   background-repeat: no-repeat;
+   background-position: 0px center;
+   left: 57px;
+}
+#facebook:hover{
+   background-position: center;
+}
+#facebook:active{
+   background-position: -36px center;
+}
+#youtube{
+   background-image: url("../img/youtube_sprite.png");
+   background-repeat: no-repeat;
+   background-position: 0px center;
+   left: 79px;
+}
+#youtube:hover{
+   background-position: center;
+}
+#youtube:active{
+   background-position: -36px center;
+}
+
+#news_board{
+   width: 288px;
+   height: 280px;
+   position: absolute;
+   top: 15px;
+   left: 118px;
+}
+#news_board_title{
+   font-size: 14px;
+   color: #810e0b;
+   font-family:'Baloo Paaji 2';
+   font-weight: 600;
+}
+#news_board_container{
+   position: absolute;
+   top: 19px;
+   width: 288px;
+   height: 244px;
+   font-size: 11px;
+   font-family:'Baloo Paaji 2';
+   text-align: left;
+   overflow-y: scroll;
+   color: #402306;
+}
+.news_board_category_date{
+   padding: 7px 10px 0px 11px;
+   font-weight: 600;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+.news_board_content{
+   padding: 2px 10px 4px 11px;
+   line-height: 1.6;
+}
+#news_board_readmore a{
+   position: absolute;
+   bottom: 0px;
+   font-size: 11px;
+   color: #810e0b;
+   font-family:'Baloo Paaji 2';
+   font-weight: 600;
+   text-align: center;
+   width: 288px;
+}
+
+#calendar_board{
+   position: absolute;
+   width: 152px;
+   top: -31px;
+}
+#upcoming_events{
+   font-family:'Baloo Paaji 2';
+   font-weight: 600;
+   text-align: center;
+   font-size: 12px;
+   width: 152px;
+   color: #3f2307;
+}
+#server_selected{
+   width: 152px;
+   height: 10px;
+   font-family:'Baloo Paaji 2';
+   font-size: 11px;
+   text-align: center;
+   color: #6e4b07;
+}
+#server_to_left {
+   position: absolute;
+   left: 15px;
+   top: 13px;
+   width: 7px;
+   height: 8px;
+   background-image: url("../img/server_selection_arrows.png");
+   background-repeat: no-repeat;
+   background-position: 0px center;
+   cursor: hand;
+}
+#server_to_right {
+   position: absolute;
+   right: 15px;
+   top: 13px;
+   width: 7px;
+   height: 8px;
+   background-image: url("../img/server_selection_arrows.png");
+   background-repeat: no-repeat;
+   background-position: -7px center;
+   cursor: hand;
+}
+
+#calendar{
+   position: absolute;
+   left: 17px;
+   top: 39px;
+   width: 100px;
+   height: 104px;
+}
+#calendar_month{
+   position: absolute;
+   top: 5px;
+   font-family:'Baloo Paaji 2';
+   font-size: 10px;
+   font-weight: 600;
+   color: #88271d;
+   text-align: center;
+   width: 100px;
+}
+#calendar_day_displayed{
+   position: absolute;
+   top: 16px;
+   font-family:'Baloo Paaji 2';
+   font-size: 30px;
+   font-weight: 600;
+   color: #88271d;
+   text-align: center;
+   width: 100px;
+}
+#timezone_changer{
+   position: absolute;
+   top: 94px;
+   left: 12px;
+   background-image: url("../img/timezone_sprite.png");
+   background-position: 0px center;
+   height: 12px;
+   width: 14px;
+   background-repeat: no-repeat;
+}
+#timezone_changer:hover{
+   background-position: center;
+}
+#timezone_changer:active{
+   background-position: 14px center;
+}
+#event_time{
+   color: #3c2a22;
+   position: absolute;
+   top: 57px;
+   font-family:'Baloo Paaji 2';
+   font-size: 11px;
+   font-weight: 600;
+   text-align: center;
+   width: 90px;
+   left: 5px;
+}
+#event_name{
+   color: #3c2a22;
+   position: absolute;
+   top: 72px;
+   font-family:'Baloo Paaji 2';
+   font-size: 9px;
+   text-align: center;
+   width: 90px;
+   left: 5px;
+}
+
+#month_days{
+   font-family:'Baloo Paaji 2';
+   font-size: 11px;
+   color: #3c2a22;
+   position: absolute;
+   left: 4px;
+   top: 154px;
+}
+#month_days td{
+   width: 14px;
+   height: 16px;
+   text-align: center;
+}
+#weekdays_title{
+   color: #070504;
+   font-weight: bold;
+   font-family:'Baloo Paaji 2';
+}
+
+.day_isselectable{
+   cursor: pointer;
+   cursor: hand;
+}
+.day_islower{
+   opacity: 0.4;
+   filter: alpha(opacity=40);
+}
+.day_isselected{
+   background-image: url("../img/selected_day_circle.png") !important;
+   height: 16px;
+   width: 16px;
+   color: white !important;
+}
+.day_haseventscheduled{
+   background-image: url("../img/day_haseventf9e3.png?v=1.1");
+   height: 16px;
+   width: 16px;
+}
+
+#timezone_changer.hover{
+   background-position: center !important;
+}
+#timezone_changer.active{
+   background-position: -28px center;
+}
+#youtube.hover{
+   background-position: center;
+}
+#youtube.active{
+   background-position: -36px center;
+}
+#facebook.hover{
+   background-position: center;
+}
+#facebook.active{
+   background-position: -36px center;
+}

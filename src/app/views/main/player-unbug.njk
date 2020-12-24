@@ -1,0 +1,43 @@
+{% extends "layout/index.njk" %}	
+{% block content %}
+				
+                    <div class="news-block">
+						<div class="title">
+							Desbugar Personagem
+						</div>
+
+
+<div class="indir"><center>
+						<center>Recomendamos que você faça login após a contagem<br><span id="say" style="font-weight: bold;font-size: 45px;">600</span><br></center><br><br><br>
+			<div class="row" style="margin: 0px;">
+
+                        {% for char in chars %}
+                            
+                        
+						<div class="col-sm-3 col-md-3">
+							<div class="thumbnail"><br><br>
+							<center><img src="/images/profil/{{char.job}}.jpg" alt="..." style="width: 32px;"></center><br><br>
+							<div class="caption" style="text-align: center;">
+								<h4>{{char.name}}</h4><br><br>
+								<p><a href="/player-unbug/{{char.id}}" class="bugtankurtar" role="button">Desbugar</a></p>
+							</div>
+							</div>
+                            {% endfor %}
+			</div>
+
+</div>
+<script type="text/javascript">
+  var saniye = 601;
+  function bak()
+  {
+    if(saniye != 0)
+	{
+		saniye = saniye - 1;
+		document.getElementById("say").innerHTML = saniye;
+		setTimeout(bak, 1000);
+	}
+  }
+  window.onload=bak;
+</script>
+    
+{% endblock %}

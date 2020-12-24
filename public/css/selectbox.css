@@ -1,0 +1,158 @@
+.sbHolder a {
+	float: none !important;
+	margin: 0 !important;
+}
+
+.sbHolder {
+	width: 80%;
+	height: 34px;
+	top: 11px;
+	color: #998169;
+	border: 0;
+	cursor: pointer;
+	margin: -10px 5px 5px 5px;
+	padding: 8px;
+	position: relative;
+	text-align: left;
+	font-size: 12px;
+	font-family:calibrib, serif;
+	background: url(../images/misc/input-bg-sprite.png) 35px -53px repeat-x;
+}
+
+.sbHolder:before {
+	width: 33px;
+	height: 38px;
+	top: 2px;
+	left: -5px;
+	content: "";
+	display: inline-block;
+	position: absolute;
+	background: url(../images/misc/input-bg-sprite.png) 0 -5px no-repeat;
+}
+
+.sbHolder:after {
+	width: 33px;
+	height: 43px;
+	content: "";
+	top: -3px;
+	right: -5px;
+	display: inline-block;
+	position: absolute;
+	background: url(../images/misc/input-bg-sprite.png) -41px 0 no-repeat;
+}
+
+.sbSelector {
+	width: 100%;
+	height: 34px;
+	top: 4px;
+	left: 0;
+	color: #998169;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	line-height: 34px;
+	text-indent: 10px;
+	box-shadow: inset 0 0 5px 0 rgba(21, 18, 17, .7), 0 0 2px 0 rgba(178, 163, 160 , .04);
+	-moz-box-shadow: inset 0 0 5px 0 rgba(21, 18, 17, .7), 0 0 2px 0 rgba(178, 163, 160 , .04);
+	-webkit-box-shadow: inset 0 0 5px 0 rgba(21, 18, 17, .7), 0 0 2px 0 rgba(178, 163, 160 , .04);
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	background: rgba(13, 12, 11,.9);
+	transition: box-shadow 300ms, color 300ms;
+	-o-transition: box-shadow 300ms, color 300ms;
+	-ms-transition: box-shadow 300ms, color 300ms;
+	-moz-transition: box-shadow 300ms, color 300ms;
+	-webkit-transition: box-shadow 300ms, color 300ms;
+}
+
+.sbSelector:hover {
+	color: #998169;
+}
+
+.sbSelector:focus {
+	color: #60514e;
+}
+
+.sbToggle {
+	width: 31px;
+	height: 34px;
+	top: 4px;
+	right: 0;
+	z-index: 999;
+	display: block;
+	position: absolute;
+	background: url(../images/misc/select-arrow.png) 0 3px no-repeat;
+}
+
+.sbToggleOpen {
+	background: url(../images/misc/select-arrow.png) 0 -34px no-repeat;
+}
+
+.sbHolderDisabled {
+	opacity: .8;
+}
+
+.sbHolderDisabled .sbHolder {}
+
+.sbHolderDisabled .sbToggle {}
+
+.sbOptions {
+	width: 100.3%;
+	max-height: 200px !important;
+	top: 34px;
+	left: -1px;
+	margin: 8px 0 0 0;
+	padding: 0;
+	cursor: default;
+	z-index: 99999;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: absolute;
+	box-shadow: inset 0 0 0 1px rgba(31,26,25,1), 0 0 10px 1px rgba(26,22,21,1), inset 0 2px 0 1px rgba(48,42,39,1);
+	-moz-box-shadow: inset 0 0 0 1px rgba(31,26,25,1), 0 0 10px 1px rgba(26,22,21,1), inset 0 2px 0 1px rgba(48,42,39,1);
+	-webkit-box-shadow: inset 0 0 0 1px rgba(31,26,25,1), 0 0 10px 1px rgba(26,22,21,1), inset 0 2px 0 1px rgba(48,42,39,1);
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background: #292322;
+}
+
+.sbOptions li {
+	width: 90%;
+	height: 38px;
+	margin: 0 auto;
+	padding: 0 10px;
+	border-bottom: 1px #211c1b solid;
+}
+
+.sbOptions li:last-child {
+	border: none;
+}
+
+.sbOptions a {
+	color: #665c54;
+	display: block;
+	padding: 10px 0;
+}
+
+.sbOptions a:hover,
+.sbOptions a:focus,
+.sbOptions a.sbFocus {
+	color: #7e756c;
+}
+
+.sbOptions .sbDisabled {
+	color: #999;
+	display: block;
+	padding: 10px 0;
+}
+
+.sbOptions .sbGroup {
+	color: #EBB52D;
+	display: block;
+	padding: 10px 0;
+	font-weight: bold;
+}
+
+.sbOptions .sbSub {
+	padding-left: 17px;
+}

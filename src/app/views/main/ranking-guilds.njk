@@ -1,0 +1,68 @@
+{% extends "layout/index.njk" %}
+{% block content %}
+    
+
+<aside id="right">
+    <div id="content_ajax">
+        <article class="page_article">
+			<div class="panel-heading"><h2 class="head">Ranking de Guildas</h2></div>
+            <div class="body">
+                <div style="margin-left:10px;margin-bottom:20px;text-align: center;">
+					<a href="/ranking-players"><button class="btn btn-giris">Ranking de Players</button></a>
+					<a href="/ranking-guilds"><button class="btn btn-giris">Ranking de Guilds</button></a>
+                    <div class="ucp_divider"></div>
+                </div>
+				                    <table id="large" cellspacing="0" class="tablesorter">
+                        <thead>
+<tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Pontos</th>
+                            <th>Reino</th>
+                            <th>Lider</th>
+                            <th>Vitorias</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+						
+						<tr>
+                        {% for guild in guilds2 %}
+                            
+                            
+                        
+                                    <td>{{loop.index}}</td>
+                                    <td>
+                                        
+                                            {{guild.guild}}
+
+                                            </a></td>
+                                    <td>{{guild.ladder_point}}</td>
+                                    {%if guild.reino == 1%}
+                                        <td> <img src="/rank/1.png"/> </td>
+                                    {%elif guild.reino == 2 %}
+                                        <td> <img src="/rank/2.png"/> </td>
+                                    {%elif guild.reino == 3%}
+                                        <td> <img src="/rank/3.png"/> </td>
+                                    {%else%}
+                                        <td><img src="/rank/hata_bg.png" style="height: 18px"/></td>
+                                    {% endif %}
+                                    <td>
+                                    {%if guild.player != null%}
+                                    {{guild.player}}
+                                    {%else%}
+                                        <img src="/rank/hata_bg.png" style="height: 18px"/>
+                                        {%endif%}
+                                        </a></td>
+                                    <td><span class="label label-green">{{guild.win}}</span></td>
+                                </tr>
+								{% endfor %}
+								
+					</tbody>
+
+					</tbody>
+                    </table>
+                            </div>
+        </article>
+    </div>
+</aside>
+{% endblock %}

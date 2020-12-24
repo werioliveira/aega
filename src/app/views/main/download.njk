@@ -1,0 +1,32 @@
+{% extends "layout/index.njk" %}
+{% block content %}
+    
+<div class="panel panel-buyuk Renk-2">
+    <div class="panel-heading">Baixe o jogo
+    </div>
+    <div class="panel-body">
+        <table class="sidebar_rank">
+			<thead>
+				<tr>
+					<th>-</th>
+					<th>Nome do Servidor</th>
+					<th>Tamanho</th>
+					<th>Link</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+
+            					<tr>
+                        <td>1</td>
+                        <td>{{links.server}}</td>
+                        <td>{{links.size}}</td>
+                        <td><a href="{{links.link}}" target="_blank" class="green-button" style="padding: 3px;margin-right: 15px;">Download</a></td>
+                    </tr>
+						</tbody>
+        </table>
+
+
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,484 @@
+.nation, .class, .grade, .symbol, .status {
+    background-color: transparent;
+    vertical-align: middle;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.status {
+    background-color: transparent;
+    vertical-align: middle;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.clanicon {
+    background-size: 16px 16px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.nation.n1 {
+    background-position: 0px -32px;
+}
+
+.nation.n2 {
+    background-position: -16px -32px;
+}
+
+.class.c {
+    background-position: 16px;
+}
+.status.a1 {
+    background-position: -1px -43px;
+}
+
+.class.c11 {
+    background-position: -32px -32px;
+}
+
+.class.c12 {
+    background-position: -48px -32px;
+}
+
+.class.c13 {
+    background-position: -64px -32px;
+}
+
+.class.c14 {
+    background-position: -80px -32px;
+}
+
+.class.c15 {
+    background-position: -96px -32px;
+}
+
+.class.c21 {
+    background-position: -112px -32px;
+}
+
+.class.c22 {
+    background-position: -128px -32px;
+}
+
+.class.c23 {
+    background-position: -144px -32px;
+}
+
+.class.c24 {
+    background-position: -160px -32px;
+}
+
+.class.c25 {
+    background-position: -176px -32px;
+}
+
+.grade.g1 {
+    background-position: 0px 0px;
+}
+
+.grade.g2 {
+    background-position: -16px 0px;
+}
+
+.grade.g3 {
+    background-position: -32px 0px;
+}
+
+.grade.g4 {
+    background-position: -48px 0px;
+}
+
+.grade.g5 {
+    background-position: -64px 0px;
+}
+
+.grade.g6 {
+    background-position: -80px 0px;
+}
+
+.grade.g7 {
+    background-position: -96px 0px;
+}
+
+.grade.g8 {
+    background-position: -112px 0px;
+}
+
+.grade.g9 {
+    background-position: -128px 0px;
+}
+
+.grade.g10 {
+    background-position: -144px 0px;
+}
+
+.grade.g11 {
+    background-position: -160px 0px;
+}
+
+.grade.g12 {
+    background-position: -176px 0px;
+}
+
+.grade.g13 {
+    background-position: -192px 0px;
+}
+
+.grade.g14 {
+    background-position: -208px 0px;
+}
+
+.grade.g15 {
+    background-position: -224px 0px;
+}
+
+.grade.g16 {
+    background-position: -240px 0px;
+}
+
+.grade.g17 {
+    background-position: -256px 0px;
+}
+
+.grade.g18 {
+    background-position: -272px 0px;
+}
+
+.grade.g19 {
+    background-position: -288px 0px;
+}
+
+.grade.g20 {
+    background-position: -304px 0px;
+}
+
+
+.symbol.a1 {
+    background-position: 0px -16px;
+}
+
+.symbol.a2 {
+    background-position: -16px -16px;
+}
+
+.symbol.a3 {
+    background-position: -32px -16px;
+}
+
+.symbol.a4 {
+    background-position: -48px -16px;
+}
+
+.symbol.a5 {
+    background-position: -64px -16px;
+}
+
+.symbol.a6 {
+    background-position: -80px -16px;
+}
+
+.symbol.b1 {
+    background-position: -96px -16px;
+}
+
+.symbol.b2 {
+    background-position: -112px -16px;
+}
+
+.symbol.b3 {
+    background-position: -128px -16px;
+}
+
+.symbol.b4 {
+    background-position: -144px -16px;
+}
+
+.symbol.b5 {
+    background-position: -160px -16px;
+}
+
+.symbol.b6 {
+    background-position: -176px -16px;
+}
+
+.symbol.r {
+    background-position: -192px -32px;
+}
+
+.symbol.k {
+    background-position: -240px -32px;
+}
+
+
+.pointer {
+    cursor: pointer;
+}
+
+.status {
+    font-family: 'Ebrima';
+    display: inline-block;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 11px;
+}
+
+.online, .offline {
+    font-family: 'Ebrima';
+    font-size:90%;
+}
+.online {
+    color: forestgreen;
+}
+
+.offline {
+    color: firebrick;
+}
+
+.noresults {
+    font-family: 'Ebrima';
+    color: #493f34;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    width:100%;
+}
+
+
+/* tables */
+table.tablesorter {
+    font-family: arial;
+    margin: 12px 0pt 15px;
+    font-size: 12px;
+    width: 965px;
+    text-align: left;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+    text-align: center;
+    color: #6fff52;
+    padding: 7px;
+}
+
+table.tablesorter thead tr .header {
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+table.tablesorter tbody td {
+    color: #6f89ad;
+    padding: 6px;
+    vertical-align: top;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.tablesorter a {
+    color: #b1e0f4;
+}
+
+table.tablesorter a:hover {
+    color: #33a2a4;
+}
+
+table.tablesorter tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, .02);
+}
+
+table.tablesorter tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, .05);
+}
+
+table.tablesorter thead tr .headerSortUp {
+    /*background-image: url(../images/asc.gif);*/
+}
+
+table.tablesorter thead tr .headerSortDown {
+    /*background-image: url(../images/desc.gif);*/
+}
+
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+
+}
+
+#auction_house {
+}
+
+#auction_house #ah-top {
+    padding: 10px;
+}
+
+#auction_house #ah-top #ah-filters {
+}
+
+#auction_house #ah-top #ah-filters #realms {
+    float: left;
+    width: 150px;
+}
+
+#auction_house #ah-top #ah-filters #factions {
+    float: right;
+    width: 150px;
+}
+
+#auction_house #ah-top #ah-search input[type="text"] {
+    width: 82%;
+}
+
+#auction_house #ah-top #ah-search input[type="submit"] {
+    width: 10%;
+}
+
+
+
+table.siralamalar {
+    border-spacing: 0px;
+    text-align: left;
+    width: 100%;
+}
+
+table.siralamalar
+tr {
+    text-align: center;
+    height: 32px;
+}
+
+table.siralamalar #baslik {
+    text-align: center;
+    color: #A1865D;
+    background: #101010;
+
+}
+
+table.siralamalar tr:last-child {
+    border: 0px;
+}
+
+table.siralamalar tr:nth-child(even) {
+
+}
+
+table.siralamalar tr:nth-child(odd) {
+    background: rgba(255, 255, 255, .03);
+}
+
+table.siralamalar tr
+td {
+    vertical-align: top;
+    text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+    width: auto;
+    padding: 10px 5px 5px 5px;
+    text-align: left;
+}
+
+
+
+#top_ranks {
+    float: left;
+    width: 730px;
+    height: auto;
+    margin-top: 10px;
+}
+
+#top_ranks .left {
+    float: left;
+    height: 325px;
+    width: 345px;
+    margin-left: 14px;
+}
+
+#top_ranks .right {
+    float: left;
+    height: 325px;
+    width: 345px;
+    margin-left: 10px;
+}
+
+#top_ranks .left .tb, #top_ranks .right .tb {
+    float: left;
+    height: 30px;
+    width: 343px;
+    margin-top: 10px;
+
+}
+
+.Table {
+    display: table;
+    width: 330px;
+    margin-left: 7px;
+}
+
+.Title {
+    display: table-caption;
+    color: #9c8872;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+    margin-left: 20px;
+}
+
+.Heading {
+    font-size: 13px !important;
+    font-weight: bold !important;
+    font-family: calibrib;
+    display: table-row;
+    text-align: center;
+    color: #A07332;
+    padding: 7px;
+
+}
+
+.Row.a {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: arial;
+    font-size: 12px;
+    display: table-row;
+    color: #797070;
+    text-align: center;
+    background: rgba(255, 255, 255, .02);
+    height: 28px;
+}
+
+.Row.b {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: arial;
+    font-size: 12px;
+    display: table-row;
+    color: #797070;
+    text-align: center;
+    background: rgba(255, 255, 255, .05);
+    height: 28px;
+}
+
+.Cell {
+    display: table-cell;
+    padding-top: 5px;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+table#large {
+    width: 580px;
+    margin-left: 13px;
+    margin-top: -3px;
+    border: 1px solid #231d1c;
+    border-radius: 4px;
+    -webkit-box-shadow: -1px -1px 22px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px -1px 22px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px -1px 22px 3px rgb(27, 58, 49);
+}
+
+table#large td {
+    border-top: 1px solid #382e2c;
+}
