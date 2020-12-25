@@ -1,0 +1,16 @@
+{% extends "layout/index.njk" %}
+{% block content %}
+    <div id="content_ajax" class="haberler">
+			
+				<div class="haber haber-1">
+                <div class="panel-heading"><a href="/notices/{{notices.id}}" style="color: #01a6a9;">{{notices.title}}</a></div>
+                <div class="panel-body haber-body">
+                    <span class="haber-tarih"><i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;&nbsp;   {{notices.subtitle}} </span>
+                    <p style="padding: 15px">{{notices.content|safe}}</p>
+                </div>
+            </div>
+							<div class="haber haber-1">
+
+	</div>
+		</div>
+{% endblock %}

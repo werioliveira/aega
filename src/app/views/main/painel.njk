@@ -35,8 +35,10 @@
 			<a href="/safebox-reset" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Senha do Armazem</a>
 			<a href="/logout" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-log-out"></i> &nbsp; Sair</a>
 			<a href="/reset-social" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Solicitar código de exclusão de personagem</a>
-
-
+			{%if session.webadmin == 9%}
+			<a href="/adm" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-log-out"></i> &nbsp; Criar Noticia</a>
+			<a href="/reset-social" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Solicitar código de exclusão de personagem</a>
+			{%endif%}
 		</div>
 
 		

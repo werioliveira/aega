@@ -30,6 +30,9 @@ module.exports = {
     findByLogin(login) {
         return db.promise().query(`SELECT * FROM account.account WHERE login = '${login}'`);
     },
+    findByEmail(email) {
+        return db.promise().query(`SELECT * FROM account.account WHERE email = '${email}'`);
+    },   
     findAccount(login,password){
         var hash_bytes = sha1(sha1(password, {asBytes: true}),{asBytes: false});
         var result = "*"+hash_bytes.toUpperCase();
@@ -100,6 +103,53 @@ module.exports = {
             return db.promise().query(query, values);
         }
 
+    },
+    async findByIdAndUpdate(account_id) {
+        const user = await db.promise().query(`SELECT * FROM account.account WHERE id = ${account_id}`);
+        if (!user) {
+            return;
+        } else {
+            const query = `UPDATE account.account SET
+                passlost_token = ?
+                WHERE id = ?`;
+
+            const values = [
+                null,
+                account_id
+            ];
+
+            return db.promise().query(query, values);
+        }
+
+    },
+    async selectCode(login,code){
+        
+        return db.promise().query(`SELECT passlost_token FROM account.account WHERE login = '${login}' AND passlost_token = '${code}'`)
+    },
+    findNotices(){
+        return db.promise().query(`SELECT * FROM web.notices`)
+    },
+    findNoticesById(id){
+        return db.promise().query(`SELECT * FROM web.notices where id = '${id}'`)
+    },
+    addNotice(data){
+        const query = `INSERT INTO web.notices
+        (
+            title,
+            content,
+            preview,
+            subtitle
+        )
+        VALUES
+        (?, ?, ?, ?)`;
+
+        const values = [
+            data.title,
+            data.editor1,
+            data.preview,
+            data.subtitle
+        ];  
+        return db.promise().query(query, values)
     },
     findDownload(){
         return db.promise().query("SELECT * FROM web.links");

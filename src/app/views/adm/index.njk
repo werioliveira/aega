@@ -1,0 +1,26 @@
+{% extends "layout/index.njk" %}
+{% block content %}
+    <form action="/adm" method="post" style="margin-top: 50px;">
+                        <div class="form-group">
+                            <label for="title" class="col-sm-3 control-label">Titulo</label>
+                            <div class="col-sm-7">
+                                <input id="title" type="text" name="title" class="form-control2"  required="">
+                            </div>
+                        </div>     
+                        <div class="form-group">
+                            <label for="subtitle" class="col-sm-3 control-label">SubTitulo</label>
+                            <div class="col-sm-7">
+                                <input id="subtitle" type="text" name="subtitle" class="form-control2"  required="">
+                            </div>
+                        </div>        
+                         <div class="form-group">
+                            <label for="preview" class="col-sm-3 control-label">Preview</label>
+                            <div class="col-sm-7">
+                                <input id="preview" type="text" name="preview" class="form-control2"  required="">
+                            </div>
+                        </div>             
+                <textarea name="editor1"></textarea>
+
+    <button type="submit"style="margin-top: 20px;">Postar</button>
+    </form>
+{% endblock %}

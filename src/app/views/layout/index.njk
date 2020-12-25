@@ -156,6 +156,7 @@
     <script type="text/javascript" src="/js/popup.js"></script>
     <script type="text/javascript" src="/js/fancybox.js"></script>
     <script src="/js/notify.js"></script>
+    <script src="https://cdn.ckeditor.com/4.15.1/full/ckeditor.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
@@ -415,41 +416,42 @@ h1.YoutubeTitle {
                                     <div id="validation">
                                     <div class="error"><p>{{error}}</p></div></div>
                                 {%endif%}
+                                {%if success %}
+                                    <div id="validation">
+                                    <div class="success"><p>{{success}}</p></div></div>
+                                {%endif%}    
+                                {%if warning %}
+                                    <div id="validation">
+                                    <div class="warning"><p>{{warning}}</p></div></div>
+                                {%endif%}                              
 {% block content %}
     
 {% endblock %}
-
-{%if notice %}
-<div id="content_ajax" class="haberler">
-
-
+{%if notices %}
+{% for notice in notices %}
+       <div id="content_ajax" class="haberler">
 			
-							
-							
-							
 				<div class="haber haber-1">
-                <div class="panel-heading"><a href="patch/view/28.html" style="color: #01a6a9;">TESTE1</a></div>
+                <div class="panel-heading"><a href="/notices/{{notice.id}}" style="color: #01a6a9;">{{notice.title}}</a></div>
                 <div class="panel-body haber-body">
-                    <span class="haber-tarih"><i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;&nbsp;   TESTE2 </span>
-                    <p style="padding: 15px">TESTE</p>
-                    <a class="green-button news-btn" href="">Ler Mais</a>
+                    <span class="haber-tarih"><i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;&nbsp;   {{notice.subtitle}} </span>
+                    <p style="padding: 15px">{{notice.preview}}</p>
+                    <a class="green-button news-btn" href="/notices/{{notice.id}}">Ler Mais</a>
                 </div>
             </div>
+            {%if loop.last%}
 			  <div class="haber-arasi"></div>
-			
-
-			
- 
-
 
             <div class="HizmetHataBaslik"></div>
             <div class="HizmetHataIcerik"></div>
             <div class="haber-arasi"></div>
-							<div class="haber haber-1">
-
-	</div>
-		</div>
+			<div class="haber haber-1"></div>
         {%endif%}
+
+	
+		</div> 
+        {% endfor %}
+{%endif%}
 <script>
     var isMobile = {
         Android: function() {return navigator.userAgent.match(/Android/i);},
@@ -586,6 +588,9 @@ h1.YoutubeTitle {
       });
     });
   </script>
+                  <script>
+                        CKEDITOR.replace( 'editor1' );
+                </script>
 
 			</body>
 		
