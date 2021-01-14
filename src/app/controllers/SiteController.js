@@ -190,26 +190,37 @@ module.exports = {
     async login(req, res){
         var username = req.body.login;
         var password = req.body.password;
+        let players = await Ranking.LoadRankPlayer();
+        let guilds = await Ranking.LoadRankGuild();
+        let countPlayer = await Ranking.OnlineCounter();
+        players = players[0];
+        guilds = guilds[0];
+        countPlayer = countPlayer[0][0].count
+        let session = req.session;
+        try{
+            if (username && password) {
+                let account = await User.findAccount(username,password);
+                console.log(account)
+                    if (account[0].length == 0) {
+                        return res.render('layout/index',{players,guilds, countPlayer, session, error: "Login ou senha incorretos"})
+    
+                    } else {
+                        req.session.loggedin = true;
+                        req.session.username = username;
+                        req.session.account_id = account[0][0].id
+                        req.session.cash = account[0][0].coins
+                        req.session.email = account[0][0].email
+                        req.session.webadmin = account[0][0].web_admin
+                        res.redirect('/');  
+                    }			
+            }    
 
-        if (username && password) {
-            let account = await User.findAccount(username,password);
+        }catch(err){
+            console.err(err)
+                return res.render('layout/index',{players,guilds, countPlayer, session, error: "Não é possível verificar o login"})
             
-                if (account[0].length == 0) {
-                    return res.render('layout/index',{players,guilds, countPlayer, session, error: "Login ou senha incorretos"})
-
-                } else {
-                    req.session.loggedin = true;
-                    req.session.username = username;
-                    req.session.account_id = account[0][0].id
-                    req.session.cash = account[0][0].coins
-                    req.session.email = account[0][0].email
-                    req.session.webadmin = account[0][0].web_admin
-                    res.redirect('/');  
-                }			
-        }    
-        else{
-            return res.render('layout/index',{players,guilds, countPlayer, session, error: "Não é possível verificar o login"})
-        }  
+        }
+  
     },
     logout(req, res) {
         req.session.destroy()

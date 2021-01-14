@@ -36,7 +36,10 @@ module.exports = {
     findAccount(login,password){
         var hash_bytes = sha1(sha1(password, {asBytes: true}),{asBytes: false});
         var result = "*"+hash_bytes.toUpperCase();
-        return db.promise().query(`SELECT * FROM account.account WHERE login = '${login}' AND password = '${result}'`)
+        var sql = "SELECT * FROM account.account WHERE login = ? AND password = ?";
+        var inserts = [login,result]
+        sql = db.format(sql,inserts)
+        return db.promise().query(sql)
     },
     updatePassword(login,password){
         var hash_bytes = sha1(sha1(password, {asBytes: true}),{asBytes: false});

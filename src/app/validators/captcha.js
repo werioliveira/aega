@@ -1,5 +1,6 @@
 const User = require('../models/UserModel');
 const Ranking = require('../models/RankingModel');
+const request = require('request')
 module.exports = {
     async captchaVerified(req, res, next) {
         let players = await Ranking.LoadRankPlayer();
