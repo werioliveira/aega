@@ -167,14 +167,14 @@
 				<!-- top-panel -->
 				<div class="wrapper">
                     <header class="header">
-                        <a href="/">
+                        <a href="{{ROUTE_MAIN}}/">
                             <img src="/asset/images/xEpkRrbJpP1UH0l.png" class="logo">
                         </a>
                         <div class="menu-top">
                             <ul class="menu-top-left">
-                                <li><a href="/">Inicio</a></li>
-                                <li><a href="/download">Download</a></li>
-								<li><a href="/register">Registro</a></li>
+                                <li><a href="{{ROUTE_MAIN}}/">Inicio</a></li>
+                                <li><a href="{{ROUTE_MAIN}}/download">Download</a></li>
+								<li><a href="{{ROUTE_MAIN}}/register">Registro</a></li>
 								
                             </ul>
                             <ul class="menu-top-right">
@@ -196,7 +196,7 @@
 					<!-- .header-->
 					<div class="container">
 						<aside class="left-sidebar">
-                            <a href="/download">
+                            <a href="{{ROUTE_MAIN}}/download">
 							    <div class="download-block"></div>
                             </a>
                             {% if session.loggedin == true %}
@@ -207,8 +207,8 @@
 								Cash <b>{{session.cash}} EP</b><br>
 
 								<div class="kayip-buttonlar2">
-									<a href="/painel" class="btn btn-giris">Painel</a><br>
-									<a href="/logout" class="btn btn-giris">Sair</a>
+									<a href="{{ROUTE_USER}}/painel" class="btn btn-giris">Painel</a><br>
+									<a href="{{ROUTE_USER}}/logout" class="btn btn-giris">Sair</a>
 								</div>
 							</center>
 							</div>
@@ -216,9 +216,9 @@
 							{%else%}
 
 							<div class="login-block p-block">
-							<form action="/" method="POST">
+							<form action="{{ROUTE_MAIN}}" method="POST">
 									<div class="login-block-title flex-center">
-										<span>Entrar</span> <a href="/register"> Cadastrar-se</a>
+										<span>Entrar</span> <a href="{{ROUTE_MAIN}}/register"> Cadastrar-se</a>
 									</div>
 									<p class="login-in" style="margin-bottom: 15px;"><input type="text" placeholder="Usuário" value="" required name="login" id="login" maxlength="16" autocomplete="off"/></p>
 									<p class="password-in" style="margin-bottom: 15px;"><input type="password" placeholder="Senha" value="" required name="password" id="password" maxlength="20" autocomplete="off"/></p>                        
@@ -234,7 +234,7 @@
 							<div class="top-players-block light p-block">
 								<div class="sidebar-title sidebar-top-title flex-center">
 									<div class="title-t">
-                                        <a href="/ranking-players"><span>Ranking de Players</span></a>
+                                        <a href="{{ROUTE_MAIN}}/ranking-players"><span>Ranking de Players</span></a>
 									</div>
                                     <div class="top-title-img"><span>TOP<b style="display: block;font-size: 30px;text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);">5</b></span></div>
                                 </div>
@@ -275,9 +275,9 @@
 							<div class="top-players-block light p-block">
 								<div class="sidebar-title sidebar-top-title flex-center">
 									<div class="title-t">
-                                        <a href="/ranking-guilds"><span>Ranking de Guildas</span></a>
+                                        <a href="{{ROUTE_MAIN}}/ranking-guilds"><span>Ranking de Guildas</span></a>
 									</div>
-									<div class="top-title-img flag-icon-2"><span>TOP<b style="display: block;font-size: 30px;text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);">5</b></span></div>
+									<div class="top-title-img flag-icon-2"><span>TOP<b style="display: block;font-size: 30px;text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);">10</b></span></div>
 								</div>
 								<div class="box-style2">
 									<div class="entry">
@@ -432,11 +432,11 @@ h1.YoutubeTitle {
        <div id="content_ajax" class="haberler">
 			
 				<div class="haber haber-1">
-                <div class="panel-heading"><a href="/notices/{{notice.id}}" style="color: #01a6a9;">{{notice.title}}</a></div>
+                <div class="panel-heading"><a href="{{ROUTE_MAIN}}/notices/{{notice.id}}" style="color: #01a6a9;">{{notice.title}}</a></div>
                 <div class="panel-body haber-body">
                     <span class="haber-tarih"><i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;&nbsp;   {{notice.subtitle}} </span>
                     <p style="padding: 15px">{{notice.preview}}</p>
-                    <a class="green-button news-btn" href="/notices/{{notice.id}}">Ler Mais</a>
+                    <a class="green-button news-btn" href="{{ROUTE_MAIN}}/notices/{{notice.id}}">Ler Mais</a>
                 </div>
             </div>
             {%if loop.last%}
@@ -528,9 +528,9 @@ h1.YoutubeTitle {
 						<div class="footer-info">
 							<div class="f-menu">
 								<ul>
-									<li><a href="/">INICIO</a></li>
-																		<li><a href="/register">REGISTRO</a></li>
-																		<li><a href="/download" id="download">DOWNLOAD</a></li>
+									<li><a href="{{ROUTE_MAIN}}">INICIO</a></li>
+																		<li><a href="{{ROUTE_MAIN}}/register">REGISTRO</a></li>
+																		<li><a href="{{ROUTE_MAIN}}/download" id="download">DOWNLOAD</a></li>
 
 								</ul>
 							</div>

@@ -30,14 +30,13 @@
 		<br>
 
 		<div class="kayip-buttonlar2-cp">
-			<a href="/reset-password" class="btn btn-giris"><i class="glyphicon glyphicon-lock"></i> &nbsp; Mudar senha</a>
-			<a href="/player-unbug" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-hourglass"></i> &nbsp; Desbugar Personagem</a>
-			<a href="/safebox-reset" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Senha do Armazem</a>
-			<a href="/logout" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-log-out"></i> &nbsp; Sair</a>
-			<a href="/reset-social" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Solicitar código de exclusão de personagem</a>
+			<a href="{{ROUTE_USER}}/reset-password" class="btn btn-giris"><i class="glyphicon glyphicon-lock"></i> &nbsp; Mudar senha</a>
+			<a href="{{ROUTE_USER}}/player-unbug" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-hourglass"></i> &nbsp; Desbugar Personagem</a>
+			<a href="{{ROUTE_USER}}/safebox-reset" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Senha do Armazem</a>
+			<a href="{{ROUTE_USER}}/logout" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-log-out"></i> &nbsp; Sair</a>
+			<a href="{{ROUTE_USER}}/reset-social" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Solicitar código de exclusão de personagem</a>
 			{%if session.webadmin == 9%}
-			<a href="/adm" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-log-out"></i> &nbsp; Criar Noticia</a>
-			<a href="/reset-social" class="btn btn-giris"><i class="glyphicon glyphicon-folder-close"></i> &nbsp; Solicitar código de exclusão de personagem</a>
+			<a href="{{ROUTE_ADMIN}}/notice" class="btn btn-giris" style="margin-left: 15px;"><i class="glyphicon glyphicon-log-out"></i> &nbsp; Criar Noticia</a>
 			{%endif%}
 		</div>
 
