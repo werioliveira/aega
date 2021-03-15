@@ -8,8 +8,8 @@
 			<div class="panel-heading"><h2 class="head">Ranking Players</h2></div>
             <div class="body">
                 <div style="margin-left:10px;margin-bottom:20px;text-align: center;">
-					<a href="/ranking-players"><button class="btn btn-giris">Ranking Players</button></a>
-					<a href="/ranking-guilds"><button class="btn btn-giris">Ranking Guildas</button></a>
+					<a href="{{ROUTE_MAIN}}/ranking-players"><button class="btn btn-giris">Ranking Players</button></a>
+					<a href="{{ROUTE_MAIN}}/ranking-guilds"><button class="btn btn-giris">Ranking Guildas</button></a>
                     <div class="ucp_divider"></div>
                 </div>
 				                    <table id="large" cellspacing="0" class="tablesorter">
@@ -27,7 +27,7 @@
                         {% for user in users %}
 															<tr>
                                     <td>{{loop.index}}</td>
-                                    <td><a rel="nofollow" href="https://aegea2.com/detail/player/detizefidir" title="Savaşçı">{{user.name}}</a></td>
+                                    <td><a rel="nofollow" href="#" title="Savaşçı">{{user.name}}</a></td>
                                     <td>{{user.level}}</td>
                                     {%if user.empire == 1%}
                                         <td> <img src="/rank/1.png"/> </td>

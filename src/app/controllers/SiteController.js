@@ -1,7 +1,7 @@
 const Ranking = require('../models/RankingModel');
 const User = require('../models/UserModel');
 const mailer = require('../../config/mailer');
-const sha1 = require('sha1')
+
 
 module.exports = {
     async index(req, res) {
@@ -23,11 +23,11 @@ module.exports = {
         let guilds = await Ranking.LoadRankGuild();
         let countPlayer = await Ranking.OnlineCounter();
         if(!id){
-            return res.redirect('/')
+            return res.redirect(process.env.ROUTE_MAIN +'/')
         }
         let notices = await User.findNoticesById(id);
         if(notices[0][0] == null)
-            return res.redirect('/')
+            return res.redirect(process.env.ROUTE_MAIN +'/')
         notices = notices[0][0] 
         players = players[0];
         guilds = guilds[0];
@@ -100,7 +100,11 @@ module.exports = {
                 to: email,
                 from:  process.env.EMAIL,
                 subject: "Gerenciamento de Conta",
-                html: `<h1>Recuperar minha senha</h1><p class="input-label">Por favor, não compartilhe sua senha com ninguém.</p><br><br><br><div style="background: #E2E2E2;margin: 0px auto;width: 600px;padding-bottom: 20px;height:auto;font-family: \'Meiryo\', Osaka, Arial, sans-serif;font-size: 12px;overflow: hidden;"><br><br><div style="width: 540px;background: #efefef;height: auto;margin:0px auto;margin-top: 30px;"><h2 style="font-size: 14px;font-weight: bold;color: #545454;padding: 5px;padding-left: 20px;margin: 0px;margin-bottom: -5px;">Recuperação de senha</h2><hr><div style="padding:20px;padding-top:10px;"><br><table style="width:100%;font-size: 12px;"><tbody><tr style="background: #dedede;height: 30px;"><td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Codigo de recuperação : </td><td style="padding-left:20px;">${token}</td></tr><tr style="background: #F2F2F2;height: 30px;"><td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">IP : </td><td style="padding-left:20px;">${ip}</td></tr></tbody></table></div></div><br></div>`,
+                context: {
+                    token: token,
+                    ip: ip
+                },
+                template: 'lostPass'
             },
             
              (err) => {
@@ -108,7 +112,7 @@ module.exports = {
             })
         }catch(error){
             console.log(error)
-            return res.redirect('/lost-pass'); 
+            return res.redirect(process.env.ROUTE_MAIN +'/lost-pass'); 
         } 
         return res.render('main/lost-password-code',{players,guilds, countPlayer, session});
     },
@@ -136,7 +140,11 @@ module.exports = {
                     to: email,
                     subject: "Gerenciamento de Conta",
                     from:  process.env.EMAIL,
-                    html: `<h1>Alterar minha senha atual</h1><p class="input-label">Por favor, não compartilhe sua senha com ninguém.</p><br><br><br><div style="background: #E2E2E2;margin: 0px auto;width: 600px;padding-bottom: 20px;height:auto;font-family: \'Meiryo\', Osaka, Arial, sans-serif;font-size: 12px;overflow: hidden;"><br><br><div style="width: 540px;background: #efefef;height: auto;margin:0px auto;margin-top: 30px;"><h2 style="font-size: 14px;font-weight: bold;color: #545454;padding: 5px;padding-left: 20px;margin: 0px;margin-bottom: -5px;">Mudança de senha</h2><hr><div style="padding:20px;padding-top:10px;"><br><table style="width:100%;font-size: 12px;"><tbody><tr style="background: #dedede;height: 30px;"><td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Nova Senha : </td><td style="padding-left:20px;">${token}</td></tr><tr style="background: #F2F2F2;height: 30px;"><td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">IP : </td><td style="padding-left:20px;">${ip}</td></tr></tbody></table></div></div><br></div>`,
+                    context: {
+                        token: token,
+                        ip: ip
+                    },
+                    template: 'lostCode',
                 },
                 
                  (err) => {
@@ -147,7 +155,7 @@ module.exports = {
             } 
             await User.findByIdAndUpdate(account[0][0].id)
         }else{
-            return res.redirect('/lost-pass'); 
+            return res.redirect(process.env.ROUTE_MAIN +'/lost-pass'); 
         }
         return res.render('layout/index',{players,guilds, countPlayer, session, success: "Senha resetada e enviada ao email"})
     },
@@ -200,7 +208,6 @@ module.exports = {
         try{
             if (username && password) {
                 let account = await User.findAccount(username,password);
-                console.log(account)
                     if (account[0].length == 0) {
                         return res.render('layout/index',{players,guilds, countPlayer, session, error: "Login ou senha incorretos"})
     
@@ -211,7 +218,7 @@ module.exports = {
                         req.session.cash = account[0][0].coins
                         req.session.email = account[0][0].email
                         req.session.webadmin = account[0][0].web_admin
-                        res.redirect('/');  
+                        res.redirect(process.env.ROUTE_MAIN +'/');  
                     }			
             }    
 
@@ -224,7 +231,7 @@ module.exports = {
     },
     logout(req, res) {
         req.session.destroy()
-        return res.redirect("/")
+        return res.redirect(process.env.ROUTE_MAIN +"/")
     },
     async resetPassword(req,res){
         let players = await Ranking.LoadRankPlayer();
@@ -246,27 +253,31 @@ module.exports = {
         check = check[0][0]
         let ip = req.connection.remoteAddress
         if (!check)
-            return res.redirect('/reset-password'); 
+            return res.redirect(process.env.ROUTE_USER +'/reset-password'); 
 
         let updated = await User.updatePassword(check.login, newPassword)  
         if (!updated)
-            return res.redirect('/reset-password');      
-    
+            return res.redirect(process.env.ROUTE_USER +'/reset-password');      
+
         try{
             const info = await mailer.transport.sendMail({
                 to: email,
                 subject: "Gerenciamento de Conta",
                 from:  process.env.EMAIL,
-                html: `<h1>Alterar minha senha atual</h1><p class="input-label">Por favor, não compartilhe sua senha com ninguém.</p><br><br><br><div style="background: #E2E2E2;margin: 0px auto;width: 600px;padding-bottom: 20px;height:auto;font-family: \'Meiryo\', Osaka, Arial, sans-serif;font-size: 12px;overflow: hidden;"><br><br><div style="width: 540px;background: #efefef;height: auto;margin:0px auto;margin-top: 30px;"><h2 style="font-size: 14px;font-weight: bold;color: #545454;padding: 5px;padding-left: 20px;margin: 0px;margin-bottom: -5px;">Mudança de senha</h2><hr><div style="padding:20px;padding-top:10px;"><br><table style="width:100%;font-size: 12px;"><tbody><tr style="background: #dedede;height: 30px;"><td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Nova Senha : </td><td style="padding-left:20px;">${newPassword}</td></tr><tr style="background: #F2F2F2;height: 30px;"><td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">IP : </td><td style="padding-left:20px;">${ip}</td></tr></tbody></table></div></div><br></div>`,
+                context: {
+                    newPassword: newPassword,
+                    ip: ip
+                },
+                template: 'resetPassword'
             },
             
              (err) => {
 
             })
         }catch(error){
-            return res.redirect('/reset-password'); 
+            return res.redirect(process.env.ROUTE_USER +'/reset-password'); 
         } 
-        return res.redirect('/reset-password');        
+        return res.redirect(process.env.ROUTE_USER +'/reset-password');        
     },
     async socialId(req, res){
         let players = await Ranking.LoadRankPlayer();
@@ -294,15 +305,19 @@ module.exports = {
                 to: email,
                 subject: "Gerenciamento de Conta",
                 from:  process.env.EMAIL,
-                html: `<h1>Código de exclusão de personagem</h1><p class="input-label">Por favor, não compartilhe seu código com ninguém.</p> <div style="width: 400px;margin: 0px auto;"><table style="width: 100%;background: #C8C8C8;"><tbody><tr style="background: #F2F2F2;height: 30px;"><td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Senha do Personagem: </td><td style="padding-left:20px;">${social_id}</td></tr><tr style="background:#dedede;height:30px"><td style="text-align:right;font-weight:bold;width:50%;padding-right:20px">IP : </td><td style="padding-left:20px">${ip}</td></tr></tbody></table></div>`,
+                context: {
+                    social_id: social_id,
+                    ip: ip
+                },
+                template:'socialId'
             },
             
              (err) => {
             })
         }catch(error){
-            return res.redirect('/reset-social'); 
+            return res.redirect(process.env.ROUTE_USER +'/reset-social'); 
         }
-        return res.redirect('/reset-social'); 
+        return res.redirect(process.env.ROUTE_USER +'/reset-social'); 
     },
     async register(req, res) {
         let session = req.session;
@@ -336,7 +351,11 @@ module.exports = {
                 to: session.email,
                 subject: "Gerenciamento de Conta",
                 from:  process.env.EMAIL,
-                html: `<html><div style="width: 400px;margin: 0px auto;"><table style="width: 100%;background: #C8C8C8;"><tbody><tr style="background: #F2F2F2;height: 30px;"><td style="text-align: right;font-weight: bold;width: 50%;padding-right: 20px;">Senha do Armazem : </td><td style="padding-left:20px;">${pass}</td></tr><tr style="background:#dedede;height:30px"><td style="text-align:right;font-weight:bold;width:50%;padding-right:20px">IP : </td><td style="padding-left:20px">${ip}</td></tr></tbody></table></div></html>`,
+                context: {
+                    pass: pass,
+                    ip: ip
+                },
+                template: 'safeboxReset',
             },
             
              (err) => {
@@ -344,9 +363,9 @@ module.exports = {
             })
         }catch(error){
             console.log(error)
-            return res.redirect('/safebox-reset'); 
+            return res.redirect(process.env.ROUTE_USER +'/safebox-reset'); 
         }
-        return res.redirect('/safebox-reset'); 
+        return res.redirect(process.env.ROUTE_USER +'/safebox-reset'); 
     },
     async playerUnbug(req,res){
         let session = req.session;
