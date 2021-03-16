@@ -1,13 +1,11 @@
 const Ranking = require('../models/RankingModel');
 const User = require('../models/UserModel');
 const mailer = require('../../config/mailer');
-
+const loadContent = require('../utils/loadContent')
 
 module.exports = {
     async index(req, res) {
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         let notices = await User.findNotices();
         notices = notices[0]
         players = players[0];
@@ -19,9 +17,7 @@ module.exports = {
     },
     async notices(req,res){
         let id = req.params.id
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         if(!id){
             return res.redirect(process.env.ROUTE_MAIN +'/')
         }
@@ -36,9 +32,7 @@ module.exports = {
         return res.render('main/notices-page',{players,guilds, countPlayer, session, notices});
     },
     async loginAdm(req,res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -46,9 +40,7 @@ module.exports = {
         return res.render('adm/index',{players,guilds, countPlayer, session});
     },
     async admEditor(req,res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -67,9 +59,7 @@ module.exports = {
         return res.render('adm/index',{players,guilds, countPlayer, session});
     },
     async lostPass(req, res) {
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -78,9 +68,7 @@ module.exports = {
         return res.render('main/lost-password',{players,guilds, countPlayer, session});
     },
     async lostPassPost(req,res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         let ip = req.connection.remoteAddress
         players = players[0];
         guilds = guilds[0];
@@ -117,9 +105,7 @@ module.exports = {
         return res.render('main/lost-password-code',{players,guilds, countPlayer, session});
     },
     async lostCodePost(req,res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         let {login,cod} = req.body;
         players = players[0];
         guilds = guilds[0];
@@ -160,9 +146,7 @@ module.exports = {
         return res.render('layout/index',{players,guilds, countPlayer, session, success: "Senha resetada e enviada ao email"})
     },
     async lostCode(req,res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -172,9 +156,7 @@ module.exports = {
 
     },
     async download(req,res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         let links = await User.findDownload()
         players = players[0];
         guilds = guilds[0];
@@ -185,9 +167,7 @@ module.exports = {
         return res.render('main/download',{players,guilds, countPlayer, session, links});
     },
     async painel(req,res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -198,9 +178,7 @@ module.exports = {
     async login(req, res){
         var username = req.body.login;
         var password = req.body.password;
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -234,9 +212,7 @@ module.exports = {
         return res.redirect(process.env.ROUTE_MAIN +"/")
     },
     async resetPassword(req,res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -280,9 +256,7 @@ module.exports = {
         return res.redirect(process.env.ROUTE_USER +'/reset-password');        
     },
     async socialId(req, res){
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -321,9 +295,7 @@ module.exports = {
     },
     async register(req, res) {
         let session = req.session;
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -369,9 +341,7 @@ module.exports = {
     },
     async playerUnbug(req,res){
         let session = req.session;
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count
@@ -394,9 +364,7 @@ module.exports = {
     },
     async rankingPlayerAll(req,res){
         let session = req.session;
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         
@@ -417,9 +385,7 @@ module.exports = {
     },
     async rankingGuilds(req,res){
         let session = req.session;
-        let players = await Ranking.LoadRankPlayer();
-        let guilds = await Ranking.LoadRankGuild();
-        let countPlayer = await Ranking.OnlineCounter();
+        let {players, guilds, countPlayer} = await loadContent.loadInfoRankings();
         players = players[0];
         guilds = guilds[0];
         countPlayer = countPlayer[0][0].count  
